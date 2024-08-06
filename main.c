@@ -8,8 +8,14 @@ int main(void)
 {
 	srand(time(NULL));
 	printf("(R)ock, (P)aper, or (S)cissors?\n");
-	char move = getchar();
-	int cmove = rand() % 3;
-	logic(move, cmove);
+	int move = pmove();
+	while (move != -1) {
+		int cmove = rand() % 3;
+		printmove(move, cmove);
+		logic(move, cmove);
+		printf("Play again? (r/p/s)\n");
+		printf("Any other char to quit\n\n");
+		move = pmove();
+	}
 	return 0;
 }

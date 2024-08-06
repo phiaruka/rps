@@ -7,4 +7,6 @@ enum MOVE {
 void win(void);
 void tie(void);
 void loss(void);
-int logic(char, int);
+int logic(int, int);
+int pmove(void);
+void printmove(int, int);

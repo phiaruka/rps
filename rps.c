@@ -6,7 +6,7 @@
 
 void win(void)
 {
-	printf("u win nigga\n");
+	printf("u win piss\a\n");
 }
 void tie(void)
 {
@@ -16,64 +16,57 @@ void loss(void)
 {
 	printf("L bozo\n");
 }
-int logic(char move, int cmove)
+
+int pmove(void)
 {
-	switch (cmove) {
+	char c = getchar();
+	while (getchar() != '\n')
+		;
+	if (c == 'r' || c == 'R')
+		return 0;
+	if (c == 'p' || c == 'P')
+		return 1;
+	if (c == 's' || c == 'S')
+		return 2;
+	printf("broke as hell\n");
+	return -1;
+}
+
+void printmove(int move, int cmove)
+{
+	switch (move) {
 	case rock:
-		printf("Computer played ROCK\n");
-		break;
-	case paper:
-		printf("Computer played PAPER\n");
+		printf("You played rock\n");
 		break;
 	case scissors:
-		printf("Computer played SCISSORS\n");
+		printf("You played scissors\n");
+		break;
+	case paper:
+		printf("You played paper\n");
+		break;
 	}
-	switch (move) {
-	case 'R':
-	case 'r':
-		switch (cmove) {
-		case rock:
-			tie();
-			break;
-		case paper:
-			loss();
-			break;
-		case scissors:
-			win();
-			break;
-		}
+	switch (cmove) {
+	case rock:
+		printf("Computer played rock\n");
 		break;
-	case 'P':
-	case 'p':
-		switch (cmove) {
-		case rock:
-			win();
-			break;
-		case paper:
-			tie();
-			break;
-		case scissors:
-			loss();
-			break;
-		}
+	case scissors:
+		printf("Computer played scissors\n");
 		break;
-	case 'S':
-	case 's':
-		switch (cmove) {
-		case rock:
-			loss();
-			break;
-		case paper:
-			win();
-			break;
-		case scissors:
-			tie();
-			break;
-		}
+	case paper:
+		printf("Computer played paper\n");
 		break;
-	default:
-		printf("r u retahded\n");
-		return 1;
 	}
+}
+
+int logic(int move, int cmove)
+{
+	if (cmove == move)
+		tie();
+	if ((move == rock && cmove == scissors) ||
+	    (move == paper && cmove == rock) ||
+	    (move == scissors && cmove == paper))
+		win();
+	else
+		loss();
 	return 0;
 }
