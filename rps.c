@@ -18,6 +18,16 @@ void loss(void)
 }
 int logic(char move, int cmove)
 {
+	switch (cmove) {
+	case rock:
+		printf("Computer played ROCK\n");
+		break;
+	case paper:
+		printf("Computer played PAPER\n");
+		break;
+	case scissors:
+		printf("Computer played SCISSORS\n");
+	}
 	switch (move) {
 	case 'R':
 	case 'r':

@@ -13,4 +13,3 @@ int main(void)
 	logic(move, cmove);
 	return 0;
 }
-
