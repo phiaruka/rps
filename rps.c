@@ -2,11 +2,8 @@
 #include <stdlib.h>
 #include <time.h>
 
-enum MOVE {
-	rock = 0,
-	paper = 1,
-	scissors = 2,
-};
+#include "rps.h"
+
 void win(void)
 {
 	printf("u win nigga\n");
@@ -68,14 +65,5 @@ int logic(char move, int cmove)
 		printf("r u retahded\n");
 		return 1;
 	}
-	return 0;
-}
-int main(void)
-{
-	srand(time(NULL));
-	printf("(R)ock, (P)aper, or (S)cissors?\n");
-	char move = getchar();
-	int cmove = rand() % 3;
-	logic(move, cmove);
 	return 0;
 }
